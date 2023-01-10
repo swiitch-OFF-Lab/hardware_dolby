@@ -51,7 +51,11 @@ vendor.product.manufacturer=OPD \
 vendor.audio.dolby.ds2.enabled=true \
 vendor.audio.dolby.ds2.hardbypass=false \
 ro.audio.monitorRotation=true \
-  
+
+# Remove Packages for Dolby Support
+PRODUCT_PACKAGES += \
+    RemovePackagesDolby
+
 # DaxUI and daxService
 PRODUCT_PACKAGES += \
     DaxUI \
