@@ -3,7 +3,7 @@ OnePlus Dolby
 
 Getting Started
 ---------------
-Make sure you are not using any audio effect configuration in your device trees. Also for dolby media codecs to work add this line in your media codecs config (should be in vendor partition) :-
+For dolby media codecs to work add this line in your media codecs config (should be in vendor partition) :-
 
 ```bash
 <Include href="media_codecs_dolby_audio.xml" />
@@ -15,3 +15,31 @@ To build, add the dolby effects in your device's audio effects config then inher
 $(call inherit-product, hardware/dolby/dolby.mk)
 ```
 
+Now, moving hidl definitions in manifest to device trees is completely absurd so stop overriding manifest in your device trees an example for such would be :-
+
+Changing these in BoardConfig makefile of your device tree:-
+
+```bash
+DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE :=
+```
+And
+
+```bash
+DEVICE_MANIFEST_FILE :=
+```
+
+To:-
+
+```bash
+DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE +=
+```
+And
+
+```bash
+DEVICE_MANIFEST_FILE +=
+```
+
+The only change done above is changing := symbol to += so that manifest can't be overriden from device tree in BoardConfig makefile.
+
+At the end an example commit to properly implement it in your device tree could be :-
+https://github.com/Neoteric-OS/device_nothing_Pong/commit/cefa46567c04770e492351e51dd96cfae80e34fb
