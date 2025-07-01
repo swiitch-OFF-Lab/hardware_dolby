@@ -18,4 +18,5 @@ OSS UI https://github.com/swiitch-OFF-Lab/hardware_dolby/tree/XiaomiDolby-15
 
 ## Motorola Dolby Atmos
 
-Not Pushed
+Motorola UI https://github.com/swiitch-OFF-Lab/hardware_dolby/tree/moto-1.0
+
