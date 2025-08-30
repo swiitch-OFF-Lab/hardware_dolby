@@ -16,6 +16,8 @@ OSS UI https://github.com/swiitch-OFF-Lab/hardware_dolby/tree/Dolby-Vision
 
 OSS UI https://github.com/swiitch-OFF-Lab/hardware_dolby/tree/XiaomiDolby-15
 
+Motorola UI https://github.com/swiitch-OFF-Lab/hardware_dolby/tree/XiaomiDolby-1.1
+
 ## Motorola Dolby Atmos
 
 Motorola UI https://github.com/swiitch-OFF-Lab/hardware_dolby/tree/moto-1.0
