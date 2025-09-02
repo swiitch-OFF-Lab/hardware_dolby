@@ -8,11 +8,17 @@ OnePlus UI https://github.com/swiitch-OFF-Lab/hardware_dolby/tree/sony-1.2
 
 Motorola UI https://github.com/swiitch-OFF-Lab/hardware_dolby/tree/sony-1.3
 
-[**adithya2306**](https://github.com/adithya2306) OSS UI  https://github.com/swiitch-OFF-Lab/hardware_dolby/tree/sony-1.4
+[**adithya2306**](https://github.com/adithya2306) OSS UI https://github.com/swiitch-OFF-Lab/hardware_dolby/tree/sony-1.4
 
 ## Sony Dolby Atmos with Dolby vision (C2 Dolby)
 
 OSS UI https://github.com/swiitch-OFF-Lab/hardware_dolby/tree/Dolby-Vision
+
+[**adithya2306**](https://github.com/adithya2306) OSS UI https://github.com/swiitch-OFF-Lab/hardware_dolby/tree/Dolby-Vision-1.1
+
+Motorola UI https://github.com/swiitch-OFF-Lab/hardware_dolby/tree/Dolby-Vision-1.2
+
+OnePlus UI https://github.com/swiitch-OFF-Lab/hardware_dolby/tree/Dolby-Vision-1.3
 
 ## MIUI Dolby Atmos
 
@@ -30,5 +36,5 @@ OnePlus UI https://github.com/swiitch-OFF-Lab/hardware_dolby/tree/marble-1.0
 
 Motorola UI https://github.com/swiitch-OFF-Lab/hardware_dolby/tree/marble-1.1
 
-[**adithya2306**](https://github.com/adithya2306) OSS UI  https://github.com/swiitch-OFF-Lab/hardware_dolby/tree/marble-1.2
+[**adithya2306**](https://github.com/adithya2306) OSS UI https://github.com/swiitch-OFF-Lab/hardware_dolby/tree/marble-1.2
 
