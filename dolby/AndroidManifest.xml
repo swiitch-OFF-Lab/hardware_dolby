@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
      Copyright (C) 2023-24 Paranoid Android
+     Copyright (C) 2024-2025 Lunaris AOSP
      SPDX-License-Identifier: Apache-2.0
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="co.aospa.dolby"
+    package="org.lunaris.dolby"
     android:sharedUserId="android.uid.system">
 
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
@@ -13,19 +14,23 @@
         android:icon="@mipmap/ic_launcher"
         android:allowBackup="false"
         android:label="@string/dolby_title"
+        android:enableOnBackInvokedCallback="true"
         android:persistent="true"
-        android:theme="@style/Theme.SubSettingsBase.Expressive">
+        android:directBootAware="true"
+        android:defaultToDeviceProtectedStorage="true"
+        android:theme="@style/Theme.Dolby">
 
         <receiver
             android:name=".BootCompletedReceiver"
             android:exported="true">
             <intent-filter android:priority="1000">
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
 
         <activity
-            android:name=".DolbyActivity"
+            android:name=".ui.DolbyActivity"
             android:label="@string/dolby_title"
             android:exported="true">
             <intent-filter>
@@ -44,21 +49,11 @@
             <meta-data android:name="com.android.settings.category"
                        android:value="com.android.settings.category.ia.sound" />
             <meta-data android:name="com.android.settings.summary_uri"
-                       android:value="content://co.aospa.dolby.summary/dolby" />
-        </activity>
-
-        <activity
-            android:name=".geq.EqualizerActivity"
-            android:label="@string/dolby_preset"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
+                       android:value="content://org.lunaris.dolby.summary/dolby" />
         </activity>
 
         <service
-            android:name=".DolbyTileService"
+            android:name=".tile.DolbyTileService"
             android:icon="@drawable/ic_dolby_qs"
             android:label="@string/dolby_title"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE"
@@ -69,10 +64,9 @@
         </service>
 
         <provider
-            android:name=".SummaryProvider"
-            android:authorities="co.aospa.dolby.summary">
+            android:name=".provider.SummaryProvider"
+            android:authorities="org.lunaris.dolby.summary">
         </provider>
 
     </application>
 </manifest>
-

@@ -5,19 +5,19 @@
 -->
 <resources>
 
-    <!-- Dolby Atmos -->
+    <!-- Dolby Atmos - Removed Voice profile, kept 4 profiles -->
     <string-array name="dolby_profile_entries">
         <item>@string/dolby_profile_dynamic</item>
         <item>@string/dolby_profile_video</item>
         <item>@string/dolby_profile_music</item>
-        <item>@string/dolby_profile_voice</item>
+        <item>@string/dolby_profile_custom</item>
     </string-array>
 
     <string-array name="dolby_profile_values">
         <item>0</item>
         <item>1</item>
         <item>2</item>
-        <item>8</item>
+        <item>3</item>
     </string-array>
 
     <string-array name="dolby_preset_entries" translatable="false">
@@ -30,66 +30,49 @@
         <item>@string/dolby_preset_blues</item>
         <item>@string/dolby_preset_electronic</item>
         <item>@string/dolby_preset_metal</item>
+        <item>@string/dolby_preset_acoustic</item>
+        <item>@string/dolby_preset_bass</item>
+        <item>@string/dolby_preset_beats</item>
+        <item>@string/dolby_preset_clear</item>
+        <item>@string/dolby_preset_deep</item>
+        <item>@string/dolby_preset_dubstep</item>
+        <item>@string/dolby_preset_hardstyle</item>
+        <item>@string/dolby_preset_movie</item>
+        <item>@string/dolby_preset_rb</item>
+        <item>@string/dolby_preset_vocal</item>
     </string-array>
 
      <string-array name="dolby_preset_values">
         <!--
-        <item>0,0,0,0,0,0,0,0,0,0</item>
-        <item>4,1,-2,-0.25,0,-2,0,-2,0.5,4</item>
-        <item>0,0,0,-1,-1,-3,-0.5,0,0,0</item>
-        <item>-2,-0.5,-5,-1,0,0,-0.5,-3,-0.5,0</item>
-        <item>0,0,0,0,0.5,3,1,6,2,6</item>
-        <item>3,0,-3,-0.5,-0.5,-3,-0.5,0,0,2</item>
-        <item>2,2,-6,-2,3,1,0,1,0,2</item>
-        <item>3,1,-1,0,-0.5,-3,-0.5,0,0,0</item>
-        <item>2,0,0,-1.25,-1,-4,0,0,0,0</item>
+        Enhanced preset values with improved ±15dB range for better sound quality
+        Values are now scaled to ±150 range (±15dB) for more precise audio tuning
         -->
         <item>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</item>
-        <item>60,36,12,-12,-36,-24,-12,-8,-4,-20,-36,-20,-4,-20,-36,-16,4,32,60,60</item>
-        <item>8,8,8,8,8,0,-8,-8,-8,-24,-40,-20,0,4,8,8,8,8,8,8</item>
-        <item>-13,-1,11,-25,-61,-29,3,11,19,19,19,15,11,-9,-29,-9,11,15,19,19</item>
-        <item>-32,-32,-32,-32,-32,-32,-32,-28,-24,-4,16,0,-16,24,64,32,0,32,64,64</item>
-        <item>52,28,4,-20,-44,-24,-4,-4,-4,-24,-44,-24,-4,0,4,4,4,20,36,36</item>
-        <item>28,28,28,-36,-100,-68,-36,4,44,28,12,4,-4,4,12,4,-4,12,28,28</item>
-        <item>50,34,18,2,-14,-6,2,-2,-6,-26,-46,-26,-6,-2,2,2,2,2,2,2</item>
-        <item>40,24,8,8,8,-4,-16,-12,-8,-32,-56,-24,8,8,8,8,8,8,8,8</item>
-    </string-array>
-
-    <string-array name="dolby_dialogue_entries">
-        <item>@string/dolby_off</item>
-        <item>@string/dolby_low</item>
-        <item>@string/dolby_medium</item>
-        <item>@string/dolby_high</item>
-        <item>@string/dolby_max</item>
-    </string-array>
-
-    <string-array name="dolby_dialogue_values">
-        <item>0</item>
-        <item>2</item>
-        <item>6</item>
-        <item>9</item>
-        <item>12</item>
-    </string-array>
-
-    <string-array name="dolby_stereo_entries">
-        <item>@string/dolby_low</item>
-        <item>@string/dolby_medium</item>
-        <item>@string/dolby_high</item>
-        <item>@string/dolby_max</item>
-    </string-array>
-
-    <string-array name="dolby_stereo_values">
-        <item>4</item>
-        <item>24</item>
-        <item>44</item>
-        <item>64</item>
+        <item>90,54,18,-18,-54,-36,-18,-12,-6,-30,-54,-30,-6,-30,-54,-24,6,48,90,90</item>
+        <item>12,12,12,12,12,0,-12,-12,-12,-36,-60,-30,0,6,12,12,12,12,12,12</item>
+        <item>-20,-2,17,-38,-92,-44,5,17,29,29,29,23,17,-14,-44,-14,17,23,29,29</item>
+        <item>-48,-48,-48,-48,-48,-48,-48,-42,-36,-6,24,0,-24,36,96,48,0,48,96,96</item>
+        <item>78,42,6,-30,-66,-36,-6,-6,-6,-36,-66,-36,-6,0,6,6,6,30,54,54</item>
+        <item>42,42,42,-54,-150,-102,-54,6,66,42,18,6,-6,6,18,6,-6,18,42,42</item>
+        <item>75,51,27,3,-21,-9,3,-3,-9,-39,-69,-39,-9,-3,3,3,3,3,3,3</item>
+        <item>60,36,12,12,12,-6,-24,-18,-12,-48,-84,-36,12,12,12,12,12,12,12,12</item>
+        <item>50,45,40,35,15,10,15,15,20,30,35,40,37,30,30,30,25,20,15,15</item>
+        <item>100,88,85,65,25,15,0,0,0,0,0,0,0,0,0,0,0,0,0,0</item>
+        <item>-55,-50,-45,-42,-35,-30,-19,0,0,0,0,0,0,0,0,0,0,0,0,0</item>
+        <item>35,55,65,95,80,65,35,25,13,50,70,90,100,110,90,85,75,65,55,45</item>
+        <item>120,80,0,-67,-120,-90,-35,-35,-61,0,-30,-50,0,12,30,25,20,15,10,5</item>
+        <item>120,100,5,-10,-30,-50,-50,-48,-45,-25,-10,0,-25,-25,0,0,0,0,0,0</item>
+        <item>61,70,120,61,-50,-120,-25,30,65,0,-22,-45,-61,-92,-100,-95,-90,-85,-80,-75</item>
+        <item>30,30,61,85,90,70,61,61,50,80,35,35,80,100,80,75,70,65,60,55</item>
+        <item>30,30,70,61,45,15,-15,-20,-15,20,25,30,35,38,40,38,35,32,30,28</item>
+        <item>-15,-20,-30,-30,-5,15,35,35,35,30,20,15,0,0,-15,-12,-10,-8,-6,-4</item>
     </string-array>
 
     <string-array name="dolby_ieq_entries">
         <item>@string/dolby_off</item>
+        <item>@string/dolby_detailed</item>
         <item>@string/dolby_balanced</item>
         <item>@string/dolby_warm</item>
-        <item>@string/dolby_detailed</item>
     </string-array>
 
     <string-array name="dolby_ieq_values">
@@ -97,6 +80,18 @@
         <item>1</item>
         <item>2</item>
         <item>3</item>
+    </string-array>
+
+    <string-array name="dolby_bass_curve_entries">
+        <item>@string/dolby_bass_curve_balanced</item>
+        <item>@string/dolby_bass_curve_sub_boost</item>
+        <item>@string/dolby_bass_curve_punch</item>
+    </string-array>
+
+    <string-array name="dolby_bass_curve_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
     </string-array>
 
 </resources>

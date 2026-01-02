@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2023-24 Paranoid Android
+     Copyright (C) 2023-25 Paranoid Android
      SPDX-License-Identifier: Apache-2.0
 -->
 <resources>
@@ -18,22 +18,40 @@
     <string name="dolby_max">Max</string>
     <string name="dolby_unknown">Unknown</string>
     <string name="dolby_on_with_profile">On (%1$s)</string>
-    <string name="dolby_category_settings">Settings</string>
+    <string name="dolby_category_settings">Audio tuning</string>
+    <string name="dolby_category_adv_settings">Advanced settings</string>
+    <string name="dolby_adv_settings_footer">Choose a different profile to show advanced settings.</string>
     <string name="dolby_bass_enhancer">Bass enhancer</string>
+    <string name="dolby_bass_level">Bass level</string>
+    <string name="dolby_bass_curve">Bass curve</string>
+    <string name="dolby_bass_curve_balanced">Balanced</string>
+    <string name="dolby_bass_curve_sub_boost">Sub boost</string>
+    <string name="dolby_bass_curve_punch">Punch</string>
+    <string name="dolby_treble_enhancer">Treble enhancer</string>
+    <string name="dolby_treble_level">Treble level</string>
     <string name="dolby_dialogue_enhancer">Dialogue enhancer</string>
-    <string name="dolby_spk_virtualizer">Speaker virtualization</string>
-    <string name="dolby_hp_virtualizer">Headphone virtualization</string>
-    <string name="dolby_stereo_widening">Stereo widening</string>
+    <string name="dolby_spk_virtualizer">Speaker surround virtualizer</string>
+    <string name="dolby_hp_virtualizer">Headphone surround virtualizer</string>
     <string name="dolby_volume_leveler">Volume leveler</string>
+    <string name="dolby_bass_enhancer_summary">Enhances low-frequency sounds for deeper bass</string>  
+    <string name="dolby_treble_enhancer_summary">Enhances high-frequency sounds for clearer treble</string>
+    <string name="dolby_dialogue_enhancer_summary">Improves clarity of voices and speech</string>  
+    <string name="dolby_spk_virtualizer_summary">Creates virtual surround sound on speakers</string>  
+    <string name="dolby_hp_virtualizer_summary">Creates virtual surround sound on headphones</string>  
+    <string name="dolby_volume_leveler_summary">Balances volume for a consistent listening experience</string>  
     <string name="dolby_connect_headphones">Connect headphones</string>
-    <string name="dolby_reset_profile">Reset to defaults</string>
-    <string name="dolby_reset_profile_toast">Succesfully reset settings for %1$s profile</string>
+    <string name="dolby_reset_all">Reset profiles</string>
+    <string name="dolby_reset_all_message">This will reset all profiles to factory defaults.</string>
+    <string name="dolby_reset_all_toast">Succesfully reset all profiles</string>
+    <string name="dolby_hp_virtualizer_dolby_strength">Surround virtualizer Strength</string>
+    <string name="dolby_dialogue_enhancer_dolby_strength">Dialogue enhancer Strength</string>
 
     <!-- Dolby profiles -->
     <string name="dolby_profile_dynamic">Dynamic</string>
     <string name="dolby_profile_video">Movie/Video</string>
     <string name="dolby_profile_music">Music</string>
     <string name="dolby_profile_voice">Voice</string>
+    <string name="dolby_profile_custom">Custom</string>
 
     <!-- Dolby equalizer presets -->
     <string name="dolby_preset_default">Flat (off)</string>
@@ -47,6 +65,17 @@
     <string name="dolby_preset_country">Country</string>
     <string name="dolby_preset_dance">Dance</string>
     <string name="dolby_preset_metal">Metal</string>
+    <string name="dolby_preset_acoustic">Acoustic</string>
+    <string name="dolby_preset_bass">Bass Boost</string>
+    <string name="dolby_preset_beats">Beats</string>
+    <string name="dolby_preset_clear">Crystal Clear</string>
+    <string name="dolby_preset_deep">Deep</string>
+    <string name="dolby_preset_dubstep">Dubstep</string>
+    <string name="dolby_preset_hardstyle">Hardstyle</string>
+    <string name="dolby_preset_movie">Movie</string>
+    <string name="dolby_preset_rb">R&amp;B</string>
+    <string name="dolby_preset_vocal">Vocal Booster</string>
+    <string name="dolby_preset_custom">Custom</string>
 
     <!-- Dolby equalizer UI -->
     <string name="dolby_geq_slider_label_gain">Gain</string>

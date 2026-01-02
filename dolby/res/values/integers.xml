@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2025 Paranoid Android
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+
+    <!-- Stereo widening amount -->
+    <integer name="stereo_widening_min">4</integer>
+    <integer name="stereo_widening_max">64</integer>
+
+    <!-- Dialogue enhancer amount -->
+    <integer name="dialogue_enhancer_min">1</integer>
+    <integer name="dialogue_enhancer_max">12</integer>
+
+</resources>
