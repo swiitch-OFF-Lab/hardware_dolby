@@ -150,10 +150,14 @@ fun InteractiveFrequencyResponseCurve(
             }
             
             drawLine(
-                color = gridColor,
+                color = if (isActive) {
+                    surfaceColor.copy(alpha = 0.7f)
+                } else {
+                    surfaceColor.copy(alpha = 0.5f)
+                },
                 start = Offset(0f, centerY),
                 end = Offset(width, centerY),
-                strokeWidth = 2f
+                strokeWidth = 3f
             )
             
             for (i in 1..4) {
@@ -305,7 +309,7 @@ fun InteractiveFrequencyResponseCurve(
                 },
                 fontSize = 10.sp,
                 fontWeight = FontWeight.SemiBold,
-                modifier = Modifier.padding(vertical = 4.dp)
+                modifier = Modifier.padding(vertical = 12.dp)
             )
             Text(
                 text = "0",
@@ -316,7 +320,8 @@ fun InteractiveFrequencyResponseCurve(
                     secondaryColor.copy(alpha = 0.8f)
                 },
                 fontSize = 10.sp,
-                fontWeight = FontWeight.SemiBold
+                fontWeight = FontWeight.SemiBold,
+                modifier = Modifier.padding(vertical = 12.dp)
             )
             Text(
                 text = "-15",
@@ -328,7 +333,7 @@ fun InteractiveFrequencyResponseCurve(
                 },
                 fontSize = 10.sp,
                 fontWeight = FontWeight.SemiBold,
-                modifier = Modifier.padding(vertical = 4.dp)
+                modifier = Modifier.padding(vertical = 12.dp)
             )
         }
         
