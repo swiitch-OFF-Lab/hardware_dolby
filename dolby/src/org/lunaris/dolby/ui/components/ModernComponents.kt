@@ -175,9 +175,9 @@ fun ModernSettingSwitch(
     Surface(
         modifier = modifier
             .fillMaxWidth()
-            .clip(RoundedCornerShape(16.dp)),
+            .clip(RoundedCornerShape(if (checked) 28.dp else 16.dp)),
         color = if (checked) 
-            MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.3f)
+            MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.6f)
         else 
             MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.3f)
     ) {
@@ -444,11 +444,14 @@ private fun IeqTile(
     Surface(
         onClick = { onPresetChange(value) },
         modifier = modifier.height(72.dp),
-        shape = RoundedCornerShape(16.dp),
         color = if (isSelected)
             MaterialTheme.colorScheme.primaryContainer
         else
             MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f),
+        shape = if (isSelected)
+            RoundedCornerShape(50.dp)
+        else
+            RoundedCornerShape(16.dp),
         border = if (isSelected)
             BorderStroke(2.dp, MaterialTheme.colorScheme.primary)
         else null
@@ -462,7 +465,10 @@ private fun IeqTile(
         ) {
             Surface(
                 modifier = Modifier.size(40.dp),
-                shape = RoundedCornerShape(12.dp),
+                shape = if (isSelected)
+                    RoundedCornerShape(50.dp)
+                else
+                    RoundedCornerShape(12.dp),
                 color = if (isSelected)
                     MaterialTheme.colorScheme.primary
                 else
