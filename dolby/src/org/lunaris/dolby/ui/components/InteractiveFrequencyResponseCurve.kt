@@ -5,7 +5,6 @@
 
 package org.lunaris.dolby.ui.components
 
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -20,14 +19,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import org.lunaris.dolby.domain.models.BandGain
@@ -61,16 +58,11 @@ fun InteractiveFrequencyResponseCurve(
     val borderWidth = if (isActive) 2.dp else 0.dp
     
     var draggedIndex by remember { mutableStateOf<Int?>(null) }
-    
-    val controlPoints = remember(bandGains) {
-        mutableStateListOf(*bandGains.map { it.gain }.toTypedArray())
-    }
+    var controlPoints by remember { mutableStateOf(bandGains.map { it.gain }) }
     
     LaunchedEffect(bandGains) {
-        bandGains.forEachIndexed { index, bandGain ->
-            if (controlPoints.getOrNull(index) != bandGain.gain) {
-                controlPoints[index] = bandGain.gain
-            }
+        if (draggedIndex == null) {
+            controlPoints = bandGains.map { it.gain }
         }
     }
     
@@ -100,8 +92,12 @@ fun InteractiveFrequencyResponseCurve(
                                 val normalizedGain = (controlPoints[index] / 150f).coerceIn(-1f, 1f)
                                 val y = height / 2 - (normalizedGain * height / 2 * 0.85f)
                                 
-                                val distance = abs(offset.x - x) + abs(offset.y - y)
-                                if (distance < closestDistance && distance < 80f) {
+                                val distance = kotlin.math.sqrt(
+                                    (offset.x - x) * (offset.x - x) + 
+                                    (offset.y - y) * (offset.y - y)
+                                )
+                                
+                                if (distance < closestDistance && distance < 120f) {
                                     closestDistance = distance
                                     closestIndex = index
                                 }
@@ -120,14 +116,20 @@ fun InteractiveFrequencyResponseCurve(
                                 val newGain = (normalizedGain * 150).toInt().coerceIn(-150, 150)
                                 
                                 if (controlPoints[index] != newGain) {
-                                    controlPoints[index] = newGain
+                                    controlPoints = controlPoints.toMutableList().apply {
+                                        this[index] = newGain
+                                    }
                                 }
+                                change.consume()
                             }
                         },
                         onDragEnd = {
                             draggedIndex?.let { index ->
                                 onBandGainChange(index, controlPoints[index])
                             }
+                            draggedIndex = null
+                        },
+                        onDragCancel = {
                             draggedIndex = null
                         }
                     )
@@ -242,12 +244,12 @@ fun InteractiveFrequencyResponseCurve(
                     val y = centerY - (normalizedGain * centerY * 0.85f)
                     
                     val isBeingDragged = draggedIndex == index
-                    val pointRadius = if (isBeingDragged) 12f else 10f
+                    val pointRadius = if (isBeingDragged) 14f else 10f
                     
                     if (isBeingDragged) {
                         drawCircle(
                             color = primaryColor.copy(alpha = 0.3f),
-                            radius = 20f,
+                            radius = 24f,
                             center = Offset(x, y)
                         )
                     }
