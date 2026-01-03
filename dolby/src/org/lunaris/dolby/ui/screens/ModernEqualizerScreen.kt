@@ -5,7 +5,14 @@
 
 package org.lunaris.dolby.ui.screens
 
+import androidx.compose.animation.*
+import androidx.compose.animation.core.*
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
@@ -13,14 +20,28 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Path
+import androidx.compose.ui.graphics.TransformOrigin
+import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.layout.layout
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import org.lunaris.dolby.R
 import org.lunaris.dolby.domain.models.EqualizerUiState
 import org.lunaris.dolby.ui.components.*
 import org.lunaris.dolby.ui.viewmodel.EqualizerViewModel
+
+enum class EqualizerViewMode {
+    CURVE,
+    SLIDERS
+}
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -32,6 +53,7 @@ fun ModernEqualizerScreen(
     var showSaveDialog by remember { mutableStateOf(false) }
     var showDeleteDialog by remember { mutableStateOf(false) }
     var showResetDialog by remember { mutableStateOf(false) }
+    var viewMode by remember { mutableStateOf(EqualizerViewMode.CURVE) }
     val currentRoute by navController.currentBackStackEntryFlow.collectAsState(null)
 
     Scaffold(
@@ -95,6 +117,8 @@ fun ModernEqualizerScreen(
                 ModernEqualizerContent(
                     state = state,
                     viewModel = viewModel,
+                    viewMode = viewMode,
+                    onViewModeChange = { viewMode = it },
                     modifier = Modifier.padding(paddingValues)
                 )
             }
@@ -171,6 +195,8 @@ fun ModernEqualizerScreen(
 private fun ModernEqualizerContent(
     state: EqualizerUiState.Success,
     viewModel: EqualizerViewModel,
+    viewMode: EqualizerViewMode,
+    onViewModeChange: (EqualizerViewMode) -> Unit,
     modifier: Modifier = Modifier
 ) {
     val isFlatPreset = state.currentPreset.name == stringResource(R.string.dolby_preset_default)
@@ -180,7 +206,7 @@ private fun ModernEqualizerContent(
         modifier = modifier
             .fillMaxSize()
             .padding(16.dp),
-        verticalArrangement = Arrangement.spacedBy(20.dp)
+        verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
         Card(
             modifier = Modifier.fillMaxWidth(),
@@ -195,43 +221,231 @@ private fun ModernEqualizerContent(
                 onPresetSelected = { viewModel.setPreset(it) }
             )
         }
+        
         Card(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(380.dp),
+            modifier = Modifier.fillMaxWidth(),
             shape = RoundedCornerShape(24.dp),
             colors = CardDefaults.cardColors(
                 containerColor = MaterialTheme.colorScheme.surfaceContainerHigh
             )
         ) {
-            Column(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(20.dp)
-            ) {
+            Column(modifier = Modifier.padding(20.dp)) {
                 Text(
-                    text = "Interactive Frequency Response",
+                    text = "Equalizer View",
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.SemiBold,
-                    modifier = Modifier.padding(bottom = 8.dp)
+                    modifier = Modifier.padding(bottom = 12.dp)
                 )
-                Text(
-                    text = "Drag the control points to adjust gain (±15 dB)",
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    modifier = Modifier.padding(bottom = 16.dp)
-                )
-                InteractiveFrequencyResponseCurve(
-                    bandGains = state.bandGains,
-                    onBandGainChange = { index, newGain ->
-                        viewModel.setBandGain(index, newGain)
-                    },
-                    isActive = isActive,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .weight(1f)
-                )
+                
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
+                    ViewModeTile(
+                        title = "Curve",
+                        icon = Icons.Default.ShowChart,
+                        isSelected = viewMode == EqualizerViewMode.CURVE,
+                        onClick = { onViewModeChange(EqualizerViewMode.CURVE) },
+                        modifier = Modifier.weight(1f)
+                    )
+                    
+                    ViewModeTile(
+                        title = "Sliders",
+                        icon = Icons.Default.Tune,
+                        isSelected = viewMode == EqualizerViewMode.SLIDERS,
+                        onClick = { onViewModeChange(EqualizerViewMode.SLIDERS) },
+                        modifier = Modifier.weight(1f)
+                    )
+                }
             }
+        }
+
+        AnimatedContent(
+            targetState = viewMode,
+            transitionSpec = {
+                fadeIn(animationSpec = tween(300)) togetherWith
+                fadeOut(animationSpec = tween(300))
+            },
+            label = "equalizer_view_transition"
+        ) { mode ->
+            when (mode) {
+                EqualizerViewMode.CURVE -> {
+                    Card(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(380.dp),
+                        shape = RoundedCornerShape(24.dp),
+                        colors = CardDefaults.cardColors(
+                            containerColor = MaterialTheme.colorScheme.surfaceContainerHigh
+                        )
+                    ) {
+                        Column(
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .padding(20.dp)
+                        ) {
+                            Text(
+                                text = "Interactive Frequency Response",
+                                style = MaterialTheme.typography.titleMedium,
+                                fontWeight = FontWeight.SemiBold,
+                                modifier = Modifier.padding(bottom = 8.dp)
+                            )
+                            Text(
+                                text = "Drag the control points to adjust gain (±15 dB)",
+                                style = MaterialTheme.typography.bodySmall,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                modifier = Modifier.padding(bottom = 16.dp)
+                            )
+                            InteractiveFrequencyResponseCurve(
+                                bandGains = state.bandGains,
+                                onBandGainChange = { index, newGain ->
+                                    viewModel.setBandGain(index, newGain)
+                                },
+                                isActive = isActive,
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .weight(1f)
+                            )
+                        }
+                    }
+                }
+                
+                EqualizerViewMode.SLIDERS -> {
+                    Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
+                        Card(
+                            modifier = Modifier.fillMaxWidth(),
+                            shape = RoundedCornerShape(24.dp),
+                            colors = CardDefaults.cardColors(
+                                containerColor = MaterialTheme.colorScheme.surfaceContainerHigh
+                            )
+                        ) {
+                            Column(modifier = Modifier.padding(20.dp)) {
+                                Text(
+                                    text = "Frequency Response",
+                                    style = MaterialTheme.typography.titleMedium,
+                                    fontWeight = FontWeight.SemiBold,
+                                    modifier = Modifier.padding(bottom = 16.dp)
+                                )
+                                FrequencyResponseCurve(
+                                    bandGains = state.bandGains,
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .height(120.dp)
+                                )
+                            }
+                        }
+
+                        Card(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(280.dp),
+                            shape = RoundedCornerShape(24.dp),
+                            colors = CardDefaults.cardColors(
+                                containerColor = MaterialTheme.colorScheme.surfaceContainerHigh
+                            )
+                        ) {
+                            Column(
+                                modifier = Modifier
+                                    .fillMaxSize()
+                                    .padding(20.dp)
+                            ) {
+                                Text(
+                                    text = stringResource(R.string.dolby_geq_slider_label_gain),
+                                    style = MaterialTheme.typography.titleMedium,
+                                    fontWeight = FontWeight.SemiBold,
+                                    modifier = Modifier.padding(bottom = 16.dp)
+                                )
+                                
+                                LazyRow(
+                                    horizontalArrangement = Arrangement.spacedBy(16.dp),
+                                    modifier = Modifier.fillMaxSize()
+                                ) {
+                                    itemsIndexed(state.bandGains) { index, bandGain ->
+                                        ModernEqualizerBand(
+                                            frequency = bandGain.frequency,
+                                            gain = bandGain.gain,
+                                            onGainChange = { newGain ->
+                                                viewModel.setBandGain(index, newGain)
+                                            }
+                                        )
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        Spacer(modifier = Modifier.height(60.dp))
+    }
+}
+
+@Composable
+private fun ViewModeTile(
+    title: String,
+    icon: ImageVector,
+    isSelected: Boolean,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+    Surface(
+        onClick = onClick,
+        modifier = modifier.height(72.dp),
+        color = if (isSelected)
+            MaterialTheme.colorScheme.primaryContainer
+        else
+            MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f),
+        shape = if (isSelected)
+            RoundedCornerShape(50.dp)
+        else
+            RoundedCornerShape(16.dp),
+        border = if (isSelected)
+            BorderStroke(2.dp, MaterialTheme.colorScheme.primary)
+        else null
+    ) {
+        Row(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(16.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.Start
+        ) {
+            Surface(
+                modifier = Modifier.size(40.dp),
+                shape = if (isSelected)
+                    RoundedCornerShape(50.dp)
+                else
+                    RoundedCornerShape(12.dp),
+                color = if (isSelected)
+                    MaterialTheme.colorScheme.primary
+                else
+                    MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.1f)
+            ) {
+                Box(contentAlignment = Alignment.Center) {
+                    Icon(
+                        imageVector = icon,
+                        contentDescription = null,
+                        tint = if (isSelected)
+                            MaterialTheme.colorScheme.onPrimary
+                        else
+                            MaterialTheme.colorScheme.onSurfaceVariant,
+                        modifier = Modifier.size(22.dp)
+                    )
+                }
+            }
+            
+            Spacer(modifier = Modifier.width(12.dp))
+            
+            Text(
+                text = title,
+                style = MaterialTheme.typography.bodyLarge,
+                fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Medium,
+                color = if (isSelected)
+                    MaterialTheme.colorScheme.onPrimaryContainer
+                else
+                    MaterialTheme.colorScheme.onSurface
+            )
         }
     }
 }
@@ -325,6 +539,159 @@ private fun ModernPresetSelector(
                     )
                 }
             }
+        }
+    }
+}
+
+@Composable
+private fun ModernEqualizerBand(
+    frequency: Int,
+    gain: Int,
+    onGainChange: (Int) -> Unit,
+    modifier: Modifier = Modifier
+) {
+    var sliderValue by remember(gain) { mutableFloatStateOf(gain / 10f) }
+
+    Column(
+        modifier = modifier
+            .width(64.dp)
+            .fillMaxHeight(),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.spacedBy(8.dp)
+    ) {
+        Surface(
+            shape = RoundedCornerShape(8.dp),
+            color = MaterialTheme.colorScheme.primaryContainer
+        ) {
+            Text(
+                text = "%.1f".format(sliderValue),
+                style = MaterialTheme.typography.labelMedium,
+                fontWeight = FontWeight.SemiBold,
+                color = MaterialTheme.colorScheme.onPrimaryContainer,
+                modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
+            )
+        }
+        
+        Slider(
+            value = sliderValue,
+            onValueChange = { sliderValue = it },
+            onValueChangeFinished = {
+                onGainChange((sliderValue * 10).toInt())
+            },
+            valueRange = -15f..15f,
+            modifier = Modifier
+                .graphicsLayer {
+                    rotationZ = 270f
+                    transformOrigin = TransformOrigin(0f, 0f)
+                }
+                .layout { measurable, constraints ->
+                    val placeable = measurable.measure(
+                        Constraints(
+                            minWidth = constraints.minHeight,
+                            maxWidth = constraints.maxHeight,
+                            minHeight = constraints.minWidth,
+                            maxHeight = constraints.maxHeight,
+                        )
+                    )
+                    layout(placeable.height, placeable.width) {
+                        placeable.place(-placeable.width, 0)
+                    }
+                }
+                .weight(1f)
+                .width(48.dp),
+            colors = SliderDefaults.colors(
+                thumbColor = MaterialTheme.colorScheme.primary,
+                activeTrackColor = MaterialTheme.colorScheme.primary,
+                inactiveTrackColor = MaterialTheme.colorScheme.surfaceVariant
+            )
+        )
+        
+        Text(
+            text = if (frequency >= 1000) "${frequency / 1000}k" else "$frequency",
+            style = MaterialTheme.typography.labelSmall,
+            fontWeight = FontWeight.Medium
+        )
+    }
+}
+
+@Composable
+private fun FrequencyResponseCurve(
+    bandGains: List<org.lunaris.dolby.domain.models.BandGain>,
+    modifier: Modifier = Modifier
+) {
+    val primaryColor = MaterialTheme.colorScheme.primary
+    val surfaceColor = MaterialTheme.colorScheme.surfaceVariant
+    
+    Canvas(modifier = modifier.background(surfaceColor.copy(alpha = 0.3f))) {
+        val width = size.width
+        val height = size.height
+        val centerY = height / 2
+        
+        drawLine(
+            color = surfaceColor,
+            start = Offset(0f, centerY),
+            end = Offset(width, centerY),
+            strokeWidth = 2f
+        )
+        
+        for (i in 1..4) {
+            val y = (height / 5) * i
+            drawLine(
+                color = surfaceColor.copy(alpha = 0.3f),
+                start = Offset(0f, y),
+                end = Offset(width, y),
+                strokeWidth = 1f
+            )
+        }
+        
+        if (bandGains.isNotEmpty()) {
+            val path = Path()
+            val stepX = width / (bandGains.size - 1)
+            
+            bandGains.forEachIndexed { index, bandGain ->
+                val x = index * stepX
+                val normalizedGain = (bandGain.gain / 150f).coerceIn(-1f, 1f)
+                val y = centerY - (normalizedGain * centerY * 0.8f)
+                
+                if (index == 0) {
+                    path.moveTo(x, y)
+                } else {
+                    val prevX = (index - 1) * stepX
+                    val prevGain = bandGains[index - 1].gain
+                    val prevNormalizedGain = (prevGain / 150f).coerceIn(-1f, 1f)
+                    val prevY = centerY - (prevNormalizedGain * centerY * 0.8f)
+                    
+                    val cpX1 = prevX + stepX * 0.4f
+                    val cpY1 = prevY
+                    val cpX2 = x - stepX * 0.4f
+                    val cpY2 = y
+                    
+                    path.cubicTo(cpX1, cpY1, cpX2, cpY2, x, y)
+                }
+            }
+            
+            drawPath(
+                path = path,
+                color = primaryColor,
+                style = Stroke(width = 4f)
+            )
+            
+            val fillPath = Path().apply {
+                addPath(path)
+                lineTo(width, height)
+                lineTo(0f, height)
+                close()
+            }
+            
+            drawPath(
+                path = fillPath,
+                brush = Brush.verticalGradient(
+                    colors = listOf(
+                        primaryColor.copy(alpha = 0.3f),
+                        primaryColor.copy(alpha = 0.05f)
+                    )
+                )
+            )
         }
     }
 }
