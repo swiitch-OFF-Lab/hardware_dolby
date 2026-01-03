@@ -294,18 +294,23 @@ class DolbyRepository(private val context: Context) {
 
     fun getPresetName(profile: Int): String {
         val gains = dolbyEffect.getDapParameter(DsParam.GEQ_BAND_GAINS, profile)
-        val gainsString = gains.joinToString(",")
+        
+        val tenBandGains = gains.filterIndexed { index, _ -> index % 2 == 0 }
+        val currentGainsString = tenBandGains.joinToString(",")
         
         val presetValues = context.resources.getStringArray(R.array.dolby_preset_values)
         val presetNames = context.resources.getStringArray(R.array.dolby_preset_entries)
+        
         presetValues.forEachIndexed { index, preset ->
-            if (gainsToCompareFormat(preset) == gainsToCompareFormat(gainsString)) {
+            val presetTenBand = convertTo10Band(preset)
+            if (gainsMatch(presetTenBand, currentGainsString)) {
                 return presetNames[index]
             }
         }
         
         presetsPrefs.all.forEach { (name, value) ->
-            if (gainsToCompareFormat(value.toString()) == gainsToCompareFormat(gainsString)) {
+            val presetTenBand = convertTo10Band(value.toString())
+            if (gainsMatch(presetTenBand, currentGainsString)) {
                 return name
             }
         }
@@ -313,8 +318,28 @@ class DolbyRepository(private val context: Context) {
         return context.getString(R.string.dolby_preset_custom)
     }
 
-    private fun gainsToCompareFormat(gains: String): String {
-        return gains.split(",").map { it.toIntOrNull() ?: 0 }.joinToString(",")
+    private fun convertTo10Band(gainsString: String): String {
+        val gains = gainsString.split(",").map { it.trim().toIntOrNull() ?: 0 }
+        
+        if (gains.size == 10) {
+            return gains.joinToString(",")
+        }
+        
+        if (gains.size == 20) {
+            val tenBand = gains.filterIndexed { index, _ -> index % 2 == 0 }
+            return tenBand.joinToString(",")
+        }
+        
+        return gainsString
+    }
+
+    private fun gainsMatch(gains1: String, gains2: String): Boolean {
+        val g1 = gains1.split(",").map { it.trim().toIntOrNull() ?: 0 }
+        val g2 = gains2.split(",").map { it.trim().toIntOrNull() ?: 0 }
+        
+        if (g1.size != g2.size) return false
+        
+        return g1.zip(g2).all { (a, b) -> kotlin.math.abs(a - b) <= 1 }
     }
 
     fun getUserPresets(): List<EqualizerPreset> {
