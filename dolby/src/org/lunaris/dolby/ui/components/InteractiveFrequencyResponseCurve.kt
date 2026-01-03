@@ -44,7 +44,7 @@ fun InteractiveFrequencyResponseCurve(
     val primaryContainerColor = MaterialTheme.colorScheme.primaryContainer
     
     val backgroundColor = if (isActive) {
-        primaryContainerColor
+        primaryContainerColor.copy(alpha = 0.6f)
     } else {
         surfaceColor.copy(alpha = 0.2f)
     }
