@@ -203,48 +203,8 @@ private fun BottomNavigationBar(
     currentRoute: String,
     onNavigate: (String) -> Unit
 ) {
-    NavigationBar(
-        containerColor = MaterialTheme.colorScheme.surfaceContainer,
-        tonalElevation = 3.dp
-    ) {
-        NavigationBarItem(
-            icon = { 
-                Icon(
-                    Icons.Default.Home,
-                    contentDescription = null
-                )
-            },
-            label = { Text("Home") },
-            selected = currentRoute == Screen.Settings.route,
-            onClick = { onNavigate(Screen.Settings.route) }
-        )
-        
-        NavigationBarItem(
-            icon = { 
-                AnimatedEqualizerIconDynamic(
-                    color = if (currentRoute == Screen.Equalizer.route) {
-                        MaterialTheme.colorScheme.primary
-                    } else {
-                        MaterialTheme.colorScheme.onSurfaceVariant
-                    },
-                    size = 24.dp
-                )
-            },
-            label = { Text("Equalizer") },
-            selected = currentRoute == Screen.Equalizer.route,
-            onClick = { onNavigate(Screen.Equalizer.route) }
-        )
-        
-        NavigationBarItem(
-            icon = { 
-                Icon(
-                    Icons.Default.Settings,
-                    contentDescription = null
-                )
-            },
-            label = { Text("Advanced") },
-            selected = currentRoute == Screen.Advanced.route,
-            onClick = { onNavigate(Screen.Advanced.route) }
-        )
-    }
+    EnhancedBottomNavigationBar(
+        currentRoute = currentRoute,
+        onNavigate = onNavigate
+    )
 }
