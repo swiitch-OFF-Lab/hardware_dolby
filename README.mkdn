@@ -1,4 +1,4 @@
-## Motorola Dolby Atmos (C2 Dolby) with ac4
+## [NEW] Motorola Dolby Atmos (C2 Dolby) with ac4
 
 Motorola UI https://github.com/swiitch-OFF-Lab/hardware_dolby/tree/moto-1.1
 
@@ -39,7 +39,7 @@ OSS UI https://github.com/swiitch-OFF-Lab/hardware_dolby/tree/XiaomiDolby-15
 
 Motorola UI https://github.com/swiitch-OFF-Lab/hardware_dolby/tree/XiaomiDolby-1.1
 
-## Motorola Dolby Atmos
+## [OLD] Motorola Dolby Atmos
 
 Motorola UI https://github.com/swiitch-OFF-Lab/hardware_dolby/tree/moto-1.0
 
