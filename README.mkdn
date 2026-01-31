@@ -6,7 +6,7 @@ Motorola UI https://github.com/swiitch-OFF-Lab/hardware_dolby/tree/xiaomi-1.0
 
 OnePlus UI https://github.com/swiitch-OFF-Lab/hardware_dolby/tree/xiaomi-1.1
 
-OSS UI  https://github.com/swiitch-OFF-Lab/hardware_dolby/tree/xiaomi-1.2
+OSS UI  https://github.com/swiitch-OFF-Lab/hardware_dolby/tree/xiaomi-1.2 + https://github.com/swiitch-OFF-Lab/packages_apps_DolbyUI
 
 ## [NEW] Motorola Dolby Atmos (C2 Dolby) with ac3,ac4
 
