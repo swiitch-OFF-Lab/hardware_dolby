@@ -17,7 +17,7 @@ soong_namespace {
 
 prebuilt_etc_xml {
     name: "vendor.dolby.hardware.dms@2.0-service.xml",
-    owner: "xiaomi",
+    owner: "sony",
     src: "proprietary/vendor/etc/vintf/manifest/vendor.dolby.hardware.dms@2.0-service.xml",
     filename_from_src: true,
     sub_dir: "vintf/manifest",
@@ -26,7 +26,7 @@ prebuilt_etc_xml {
 
 prebuilt_etc_xml {
     name: "vendor.dolby.media.c2.xml",
-    owner: "xiaomi",
+    owner: "sony",
     src: "proprietary/vendor/etc/vintf/manifest/vendor.dolby.media.c2.xml",
     filename_from_src: true,
     sub_dir: "vintf/manifest",
@@ -825,15 +825,16 @@ cc_prebuilt_binary {
                 "proprietary/vendor/bin/hw/vendor.dolby.media.c2@1.0-service",
             ],
             shared_libs: [
-                "libshim_dolby",
                 "libbase",
                 "liblog",
                 "libcodec2",
                 "libutils",
                 "android.hardware.media.c2@1.0",
                 "android.hardware.media.c2@1.1",
+                "android.hardware.media.c2@1.2",
                 "libcodec2_hidl@1.0",
                 "libcodec2_hidl@1.1",
+                "libcodec2_hidl@1.2",
                 "libcodec2_vndk",
                 "libhidlbase",
                 "libavservices_minijail_vendor",
