@@ -1,5 +1,13 @@
 ## Mentioned all branches are standalone Dolby Atmos, It supports every device atleast on Snapdragon (Low > Flagship)
 
+## Motorola Dolby Atmos with Dolby vision (C2 Dolby) with ac3,ac4
+
+Motorola UI https://github.com/swiitch-OFF-Lab/hardware_dolby/tree/Dolby-Vision-2.0
+
+## Sony Dolby Atmos with Dolby vision (C2 Dolby) with ac3,ac4
+
+OnePlus UI https://github.com/swiitch-OFF-Lab/hardware_dolby/tree/Dolby-Vision-2.1
+
 ## [NEW] MIUI/HyperOS Dolby Atmos (C2 Dolby) with ac3
 
 Motorola UI https://github.com/swiitch-OFF-Lab/hardware_dolby/tree/xiaomi-1.0
@@ -25,18 +33,5 @@ Motorola UI https://github.com/swiitch-OFF-Lab/hardware_dolby/tree/sony-1.3
 
 OSS UI  https://github.com/swiitch-OFF-Lab/hardware_dolby/tree/sony-1.5 + https://github.com/swiitch-OFF-Lab/packages_apps_DolbyUI
 
-## Sony Dolby Atmos (C2 Dolby) with ac3,ac4
-
-Sony UI https://github.com/swiitch-OFF-Lab/hardware_dolby/tree/sony-1.0
-
-## Sony Dolby Atmos with Dolby vision (C2 Dolby) with ac3,ac4
-
-OSS UI https://github.com/swiitch-OFF-Lab/hardware_dolby/tree/Dolby-Vision
-
-[**adithya2306**](https://github.com/adithya2306) OSS UI https://github.com/swiitch-OFF-Lab/hardware_dolby/tree/Dolby-Vision-1.1
-
-Motorola UI https://github.com/swiitch-OFF-Lab/hardware_dolby/tree/Dolby-Vision-1.2
-
-OnePlus UI https://github.com/swiitch-OFF-Lab/hardware_dolby/tree/Dolby-Vision-1.3
 
 
