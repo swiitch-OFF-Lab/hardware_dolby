@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<config>
-    <hidden-api-whitelisted-app package="com.motorola.dolby.dolbyui"/>
-    <allow-in-power-save package="com.motorola.dolby.dolbyui" />
-</config>

@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<permissions>
-    <library name="com.motorola.frameworks.core.addon"
-        file="/system_ext/framework/com.motorola.frameworks.core.addon.jar"/>
-</permissions>
