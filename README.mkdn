@@ -1,5 +1,11 @@
 ## Mentioned all branches are standalone Dolby Atmos, It supports every device atleast on Snapdragon (Low > Flagship)
 
+##   
+
+##   
+
+## Dolby Atmos and Dolby vision
+
 ## Motorola Dolby Atmos with Dolby vision (C2 Dolby) with ac3,ac4
 
 Motorola UI https://github.com/swiitch-OFF-Lab/hardware_dolby/tree/Dolby-Vision-2.0
@@ -8,7 +14,19 @@ Motorola UI https://github.com/swiitch-OFF-Lab/hardware_dolby/tree/Dolby-Vision-
 
 OnePlus UI https://github.com/swiitch-OFF-Lab/hardware_dolby/tree/Dolby-Vision-2.1
 
-## [NEW] MIUI/HyperOS Dolby Atmos (C2 Dolby) with ac3
+## MIUI/HyperOS Dolby Atmos with Dolby vision (C2 Dolby) with ac3
+
+OnePlus UI https://github.com/swiitch-OFF-Lab/hardware_dolby/tree/Dolby-Vision-2.4
+
+##            
+
+##          
+
+##   
+
+## Only Dolby Atmos
+
+## MIUI/HyperOS Dolby Atmos (C2 Dolby) with ac3
 
 Motorola UI https://github.com/swiitch-OFF-Lab/hardware_dolby/tree/xiaomi-1.0
 
