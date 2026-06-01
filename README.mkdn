@@ -34,7 +34,7 @@ OnePlus UI https://github.com/swiitch-OFF-Lab/hardware_dolby/tree/xiaomi-1.1
 
 OSS UI  https://github.com/swiitch-OFF-Lab/hardware_dolby/tree/xiaomi-1.2 + https://github.com/swiitch-OFF-Lab/packages_apps_DolbyUI
 
-## [NEW] Motorola Dolby Atmos (C2 Dolby) with ac3,ac4
+## Motorola Dolby Atmos (C2 Dolby) with ac3,ac4
 
 Motorola UI https://github.com/swiitch-OFF-Lab/hardware_dolby/tree/moto-1.1
 
@@ -43,7 +43,7 @@ OnePlus UI https://github.com/swiitch-OFF-Lab/hardware_dolby/tree/moto-1.2
 OSS UI  https://github.com/swiitch-OFF-Lab/hardware_dolby/tree/moto-1.4 + https://github.com/swiitch-OFF-Lab/packages_apps_DolbyUI
 
 
-## [NEW] Sony Dolby Atmos (C2 Dolby) with ac3,ac4
+## Sony Dolby Atmos (C2 Dolby) with ac3,ac4
 
 OnePlus UI https://github.com/swiitch-OFF-Lab/hardware_dolby/tree/sony-1.2
 
