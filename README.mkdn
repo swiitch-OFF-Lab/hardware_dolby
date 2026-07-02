@@ -47,7 +47,9 @@ At the end an example commit to properly implement it in your device tree could 
 **or**
 [**Enable Dolby Atmos**](https://github.com/swiitchOFF-miatoll/device_xiaomi_sm6250-common/commit/cfb88813114c6b0b16860ca29c04319418fbec93)
 
-**2)** [**Enable Dolby Spatial Audio**](https://github.com/Spanish-or-Vanish/android_device_xiaomi_sm8350-common/commit/fb6e082743d651b4742232817142aed161758953)
+**2)** [**Enable Dolby Spatial Audio**](https://github.com/Spanish-or-Vanish/android_device_xiaomi_sm8350-common/commit/fb6e082743d651b4742232817142aed161758953) 
+**with** **>>** [**this is must**](https://github.com/Spanish-or-Vanish/android_device_xiaomi_sm8350-common/commit/f43cac4b68a208fda517e8faf914234158da75fd) **<<**
+
 **or**
 [**Enable Dolby Spatial Audio**](https://github.com/swiitchOFF-miatoll/device_xiaomi_sm6250-common/commit/b976b1aed2bd4b744f6003f9d36da2f31420b8a2)
 
