@@ -1,6 +1,8 @@
 ## Mentioned all 3 branches are standalone, It supports every device atleast on Snapdragon (Low > Flagship till >>sm8650<<) 
 **and not all but few Mediatek devices also supports**
 
+## It's HIDL Dolby and will not work on AIDL device like sm8750 or any newer device
+
 ##   
 
 ##   
