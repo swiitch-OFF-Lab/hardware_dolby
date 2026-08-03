@@ -7,7 +7,7 @@
 
 ##   
 
-## Dolby Atmos and Dolby vision
+## Dolby Atmos and Dolby vision for Android 15 and Android 16
 
 **Motorola Dolby Atmos with Dolby vision (C2 Dolby) with ac3,ac4**
 
@@ -20,6 +20,18 @@ https://github.com/swiitch-OFF-Lab/hardware_dolby/tree/Dolby-Vision-2.1
 **MIUI/HyperOS Dolby Atmos with Dolby vision (C2 Dolby) with ac3**
 
 https://github.com/swiitch-OFF-Lab/hardware_dolby/tree/Dolby-Vision-2.4
+
+##   
+
+## Dolby Atmos and Dolby vision for Android 17
+
+**Sony Dolby Atmos with Dolby vision (C2 Dolby) with ac3,ac4**
+
+https://github.com/swiitch-OFF-Lab/hardware_dolby/tree/sony-A17
+
+**Motorola Dolby Atmos with Dolby vision (C2 Dolby) with ac3,ac4**
+
+https://github.com/swiitch-OFF-Lab/hardware_dolby/tree/Dolby-Vision-2.0
 
 ##               
 
