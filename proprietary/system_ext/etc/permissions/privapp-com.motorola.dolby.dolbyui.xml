@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<permissions>
+    <privapp-permissions package="com.motorola.dolby.dolbyui">
+        <permission name="android.permission.BLUETOOTH_PRIVILEGED"/>
+        <permission name="android.permission.BROADCAST_CLOSE_SYSTEM_DIALOGS"/>
+        <permission name="android.permission.INTERACT_ACROSS_USERS"/>
+        <permission name="com.motorola.permission.ACCESS_CHECKIN"/>
+    </privapp-permissions>
+</permissions>
