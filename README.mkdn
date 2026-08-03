@@ -1,4 +1,4 @@
-## Mentioned all 3 branches are standalone, It supports every device atleast on Snapdragon (Low > Flagship till >>sm8650<<) 
+## Mentioned all branches are standalone, It supports every device atleast on Snapdragon (Low > Flagship till >>sm8650<<) 
 **and not all but few Mediatek devices also supports**
 
 ## It's HIDL Dolby and will not work on AIDL device like sm8750 or any newer device
@@ -7,7 +7,19 @@
 
 ##   
 
-## Dolby Atmos and Dolby vision for Android 15 and Android 16
+## Dolby Atmos and Dolby vision for Android 17,16,15
+
+**Sony Dolby Atmos with Dolby vision (C2 Dolby) with ac3,ac4**
+
+https://github.com/swiitch-OFF-Lab/hardware_dolby/tree/sony-A17
+
+**Motorola Dolby Atmos with Dolby vision (C2 Dolby) with ac3,ac4**
+
+https://github.com/swiitch-OFF-Lab/hardware_dolby/tree/Dolby-Vision-2.0
+
+##               
+
+## Dolby Atmos and Dolby vision for Android 16,15
 
 **Motorola Dolby Atmos with Dolby vision (C2 Dolby) with ac3,ac4**
 
@@ -22,18 +34,6 @@ https://github.com/swiitch-OFF-Lab/hardware_dolby/tree/Dolby-Vision-2.1
 https://github.com/swiitch-OFF-Lab/hardware_dolby/tree/Dolby-Vision-2.4
 
 ##   
-
-## Dolby Atmos and Dolby vision for Android 17
-
-**Sony Dolby Atmos with Dolby vision (C2 Dolby) with ac3,ac4**
-
-https://github.com/swiitch-OFF-Lab/hardware_dolby/tree/sony-A17
-
-**Motorola Dolby Atmos with Dolby vision (C2 Dolby) with ac3,ac4**
-
-https://github.com/swiitch-OFF-Lab/hardware_dolby/tree/Dolby-Vision-2.0
-
-##               
 
 **I don't have to need maintain multiple branches now everything included in a easy way so just**
 
