@@ -13,6 +13,7 @@ allow hal_dms_default mediacodec:binder call;
 binder_call(hal_dms_default, audioserver)
 binder_call(hal_dms_default, hal_audio_default)
 binder_call(hal_dms_default, platform_app)
+binder_call(hal_dms_default, platform_app_36)
 binder_call(hal_dms_default, system_server)
 
 hal_server_domain(hal_dms_default, hal_dms)
