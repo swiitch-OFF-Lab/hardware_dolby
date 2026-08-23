@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<config>
-    <hidden-api-whitelisted-app package="com.motorola.android.providers.settings"/>
-    <allow-in-power-save package="com.motorola.android.providers.settings" />
-</config>
