@@ -1,2 +1,3 @@
 # Dolby
 hal_client_domain(platform_app, hal_dms)
+hal_client_domain(platform_app_36, hal_dms)
