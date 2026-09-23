@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+
+     This program is protected under international and U.S. copyright laws as
+     an unpublished work. This program is confidential and proprietary to the
+     copyright owners. Reproduction or disclosure, in whole or in part, or the
+     production of derivative works therefrom without the express permission of
+     the copyright owners is prohibited.
+
+                   Copyright (C) 2020-2021 by Dolby Laboratories,
+                               All rights reserved.
+-->
+
+<Included>
+    <Decoders>
+        <!-- DOLBY_UDC -->
+        <MediaCodec name="c2.dolby.eac3.decoder" >
+            <Type name="audio/ac3">
+                <Alias name="OMX.dolby.ac3.decoder" />
+                <Limit name="channel-count" max="6" />
+                <Limit name="sample-rate" ranges="32000,44100,48000" />
+                <Limit name="bitrate" range="32000-640000" />
+            </Type>
+            <Type name="audio/eac3">
+                <Alias name="OMX.dolby.eac3.decoder" />
+                <Limit name="channel-count" max="8" />
+                <Limit name="sample-rate" ranges="32000,44100,48000" />
+                <Limit name="bitrate" range="32000-6144000" />
+            </Type>
+            <Type name="audio/eac3-joc">
+                <Alias name="OMX.dolby.eac3-joc.decoder" />
+                <Limit name="channel-count" max="16" />
+                <Limit name="sample-rate" ranges="48000" />
+                <Limit name="bitrate" range="32000-6144000" />
+            </Type>
+        </MediaCodec>
+        <!-- DOLBY_UDC END -->
+        <!-- DOLBY_AC4 -->
+        <MediaCodec name="c2.dolby.ac4.decoder" type="audio/ac4">
+            <Alias name="OMX.dolby.ac4.decoder" />
+            <Limit name="channel-count" max="16" />
+            <Limit name="sample-rate" ranges="48000" />
+            <Limit name="bitrate" range="16000-2688000" />
+        </MediaCodec>
+        <!-- DOLBY_AC4 END -->
+        <!-- C2 dolby vision decoders -->
+        <MediaCodec name="c2.dolby.decoder.hevc" type="video/dolby-vision">
+            <Limit name="size" min="96x96" max="4096x4096"/>
+            <Limit name="alignment" value="2x2"/>
+            <Limit name="block-size" value="16x16"/>
+            <Limit name="block-count" range="1-34560"/>
+            <Limit name="blocks-per-second" min="1" max="1958400"/>
+            <Limit name="bitrate" range="1-100000000"/>
+            <Limit name="frame-rate" range="1-240"/>
+            <Feature name="adaptive-playback"/>
+            <Limit name="concurrent-instances" max="16"/>
+            <Limit name="performance-point-4096x2160" value="56"/>
+            <Limit name="performance-point-3840x2160" value="60"/>
+            <Limit name="performance-point-1920x1080" value="240"/>
+        </MediaCodec>
+        <MediaCodec name="c2.dolby.decoder.hevc.secure" type="video/dolby-vision">
+            <Limit name="size" min="96x96" max="4096x4096" />
+            <Limit name="block-count" range="36-36864" />
+            <Limit name="alignment" value="2x2" />
+            <Limit name="block-size" value="16x16" />
+            <Limit name="blocks-per-second" min="24" max="2073600" />
+            <Limit name="bitrate" range="1-40000000" />
+            <Limit name="frame-rate" range="1-60" />
+            <Limit name="concurrent-instances" max="1" />
+            <Limit name="performance-point-4096x2304" value="30" />
+            <Limit name="performance-point-4096x2160" value="60" />
+            <Limit name="performance-point-3840x2160" value="60" />
+            <Feature name="adaptive-playback" />
+            <Feature name="secure-playback" required="true" />
+        </MediaCodec>
+        <MediaCodec name="c2.dolby.decoder.avc" type="video/dolby-vision">
+            <Limit name="size" min="96x96" max="4096x4096"/>
+            <Limit name="alignment" value="2x2"/>
+            <Limit name="block-size" value="16x16"/>
+            <Limit name="block-count" range="1-34560"/>
+            <Limit name="blocks-per-second" min="1" max="1958400"/>
+            <Limit name="bitrate" range="1-100000000"/>
+            <Feature name="adaptive-playback"/>
+            <Limit name="concurrent-instances" max="16"/>
+            <Limit name="performance-point-4096x2160" value="56"/>
+            <Limit name="performance-point-3840x2160" value="60"/>
+            <Limit name="performance-point-1920x1080" value="240"/>
+        </MediaCodec>
+        <MediaCodec name="c2.dolby.decoder.avc.secure" type="video/dolby-vision">
+            <Limit name="size" min="96x96" max="4096x4096" />
+            <Limit name="block-count" range="36-36864" />
+            <Limit name="alignment" value="2x2" />
+            <Limit name="block-size" value="16x16" />
+            <Limit name="blocks-per-second" min="1" max="1958400" />
+            <Limit name="bitrate" range="1-40000000" />
+            <Limit name="frame-rate" range="1-240" />
+            <Limit name="concurrent-instances" max="1" />
+            <Limit name="performance-point-4096x2304" value="30" />
+            <Limit name="performance-point-4096x2160" value="60" />
+            <Limit name="performance-point-3840x2160" value="60" />
+            <Feature name="adaptive-playback" />
+            <Feature name="secure-playback" required="true" />
+        </MediaCodec>
+        <!-- C2 dolby vision decoders -->
+    </Decoders>
+</Included>
