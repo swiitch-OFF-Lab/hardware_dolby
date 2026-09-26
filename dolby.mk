@@ -68,14 +68,16 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(DOLBY_PATH)/configs/android.hardware.sensor.dynamic.head_tracker.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.dynamic.head_tracker.xml
 
+PRODUCT_SYSTEM_EXT_PROPERTIES += \
+       ro.audio.headtracking_enabled=true
+
 # Dolby Spatial Audio: optimize spatializer effect
-PRODUCT_VENDOR_PROPERTIES += \
+PRODUCT_SYSTEM_EXT_PROPERTIES += \
        audio.spatializer.effect.util_clamp_min=300
 
 # Dolby Spatial Audio: declare use of spatial audio
-PRODUCT_VENDOR_PROPERTIES += \
+PRODUCT_SYSTEM_EXT_PROPERTIES += \
        ro.audio.spatializer_enabled=true \
-       ro.audio.headtracking_enabled=true \
        ro.audio.spatializer_transaural_enabled_default=false \
        ro.audio.stereo_spatialization_enabled=true \
        persist.vendor.audio.spatializer.speaker_enabled=true
