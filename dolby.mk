@@ -71,16 +71,12 @@ PRODUCT_COPY_FILES += \
 PRODUCT_SYSTEM_EXT_PROPERTIES += \
        ro.audio.headtracking_enabled=true
 
-# Dolby Spatial Audio: optimize spatializer effect
-PRODUCT_SYSTEM_EXT_PROPERTIES += \
-       audio.spatializer.effect.util_clamp_min=300
-
 # Dolby Spatial Audio: declare use of spatial audio
 PRODUCT_SYSTEM_EXT_PROPERTIES += \
        ro.audio.spatializer_enabled=true \
        ro.audio.spatializer_transaural_enabled_default=false \
        ro.audio.stereo_spatialization_enabled=true \
-       persist.vendor.audio.spatializer.speaker_enabled=true
+       persist.vendor.audio.spatializer.speaker_enabled=false
 
 # Dolby Spatial Audio Proprietary blobs
 PRODUCT_PACKAGES += \

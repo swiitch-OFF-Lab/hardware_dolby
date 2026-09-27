@@ -422,6 +422,7 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib/soundfx/libswdap.so",
             ],
             shared_libs: [
+                "libspatializerparamstorage",
                 "liblog",
                 "libutils",
                 "libcutils",
@@ -430,7 +431,7 @@ cc_prebuilt_library_shared {
                 "libhidlbase",
                 "libstagefright_foundation-v33",
                 "libdlbpreg",
-                "vendor.dolby.hardware.dms@2.0",
+                "vendor.dolby.hardware.dms@2.0-atmos.so",
                 "libc++",
                 "libc",
                 "libm",
@@ -442,6 +443,7 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/soundfx/libswdap.so",
             ],
             shared_libs: [
+                "libspatializerparamstorage",
                 "liblog",
                 "libutils",
                 "libcutils",
@@ -450,7 +452,7 @@ cc_prebuilt_library_shared {
                 "libhidlbase",
                 "libstagefright_foundation-v33",
                 "libdlbpreg",
-                "vendor.dolby.hardware.dms@2.0",
+                "vendor.dolby.hardware.dms@2.0-atmos.so",
                 "libc++",
                 "libc",
                 "libm",
@@ -1071,6 +1073,7 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib/soundfx/libdlbvol.so",
             ],
             shared_libs: [
+                "libspatializerparamstorage",
                 "liblog",
                 "libutils",
                 "libcutils",
@@ -1089,6 +1092,7 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/soundfx/libdlbvol.so",
             ],
             shared_libs: [
+                "libspatializerparamstorage",
                 "liblog",
                 "libutils",
                 "libcutils",
