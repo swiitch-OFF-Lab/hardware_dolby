@@ -1450,7 +1450,7 @@
       </regulator-tuning>
       <regulator-sibilance-suppress-amounts-left value="-128,-144,-96,-160,-128,-144"/>
       <regulator-sibilance-suppress-amounts-right value="-160,-144,-128,-144,-144,-160"/>
-      <bass-enhancer-boost value="16"/>
+      <bass-enhancer-boost value="96"/>
       <bass-enhancer-cutoff-frequency value="277"/>
       <bass-enhancer-width value="8"/>
       <bass-extraction-cutoff-frequency value="200"/>
@@ -1552,7 +1552,7 @@
       </regulator-tuning>
       <regulator-sibilance-suppress-amounts-left value="-128,-144,-96,-160,-128,-144"/>
       <regulator-sibilance-suppress-amounts-right value="-160,-144,-128,-144,-144,-160"/>
-      <bass-enhancer-boost value="16"/>
+      <bass-enhancer-boost value="96"/>
       <bass-enhancer-cutoff-frequency value="277"/>
       <bass-enhancer-width value="8"/>
       <bass-extraction-cutoff-frequency value="200"/>
@@ -1653,7 +1653,7 @@
       </regulator-tuning>
       <regulator-sibilance-suppress-amounts-left value="-128,-144,-96,-160,-128,-144"/>
       <regulator-sibilance-suppress-amounts-right value="-160,-144,-128,-144,-144,-160"/>
-      <bass-enhancer-boost value="16"/>
+      <bass-enhancer-boost value="96"/>
       <bass-enhancer-cutoff-frequency value="277"/>
       <bass-enhancer-width value="8"/>
       <bass-extraction-cutoff-frequency value="200"/>
@@ -1754,7 +1754,7 @@
       </regulator-tuning>
       <regulator-sibilance-suppress-amounts-left value="-128,-144,-96,-160,-128,-144"/>
       <regulator-sibilance-suppress-amounts-right value="-160,-144,-128,-144,-144,-160"/>
-      <bass-enhancer-boost value="16"/>
+      <bass-enhancer-boost value="96"/>
       <bass-enhancer-cutoff-frequency value="277"/>
       <bass-enhancer-width value="8"/>
       <bass-extraction-cutoff-frequency value="200"/>
@@ -1855,7 +1855,7 @@
       </regulator-tuning>
       <regulator-sibilance-suppress-amounts-left value="-128,-144,-96,-160,-128,-144"/>
       <regulator-sibilance-suppress-amounts-right value="-160,-144,-128,-144,-144,-160"/>
-      <bass-enhancer-boost value="16"/>
+      <bass-enhancer-boost value="96"/>
       <bass-enhancer-cutoff-frequency value="277"/>
       <bass-enhancer-width value="8"/>
       <bass-extraction-cutoff-frequency value="200"/>
@@ -1957,7 +1957,7 @@
       </regulator-tuning>
       <regulator-sibilance-suppress-amounts-left value="-128,-144,-96,-160,-128,-144"/>
       <regulator-sibilance-suppress-amounts-right value="-160,-144,-128,-144,-144,-160"/>
-      <bass-enhancer-boost value="16"/>
+      <bass-enhancer-boost value="96"/>
       <bass-enhancer-cutoff-frequency value="277"/>
       <bass-enhancer-width value="8"/>
       <bass-extraction-cutoff-frequency value="200"/>
@@ -2059,7 +2059,7 @@
       </regulator-tuning>
       <regulator-sibilance-suppress-amounts-left value="-128,-144,-96,-160,-128,-144"/>
       <regulator-sibilance-suppress-amounts-right value="-160,-144,-128,-144,-144,-160"/>
-      <bass-enhancer-boost value="16"/>
+      <bass-enhancer-boost value="96"/>
       <bass-enhancer-cutoff-frequency value="277"/>
       <bass-enhancer-width value="8"/>
       <bass-extraction-cutoff-frequency value="200"/>
