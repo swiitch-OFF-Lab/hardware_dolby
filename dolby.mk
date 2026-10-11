@@ -157,6 +157,12 @@ PRODUCT_PACKAGES += \
     vendor.dolby.media.c2@1.0-service
 
 PRODUCT_PACKAGES += \
+    libcodec2_aidl-dolby \
+    libcodec2_hal_common-aidl \
+    libcodec2_hidl_plugin-dolby \
+    libcodec2_vndk-aidl
+
+PRODUCT_PACKAGES += \
     libdlbpreg \
     libstagefright_foundation-atmos \
     libdlbvol \
