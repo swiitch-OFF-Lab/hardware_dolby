@@ -1,0 +1,18 @@
+type hal_aidl_dms_default, domain;
+type hal_aidl_dms_default_exec, exec_type, file_type, vendor_file_type;
+type hal_aidl_dms_service, hal_service_type, protected_service, service_manager_type;
+
+allow hal_aidl_dms_client hal_aidl_dms_server:binder { call transfer };
+allow hal_aidl_dms_client hal_aidl_dms_server:binder transfer;
+allow hal_aidl_dms_client hal_aidl_dms_server:fd *;
+allow hal_aidl_dms_client hal_aidl_dms_service:service_manager find;
+allow hal_aidl_dms_server hal_aidl_dms_client:binder transfer;
+allow hal_aidl_dms_server hal_aidl_dms_client:binder { call transfer };
+allow hal_aidl_dms_server hal_aidl_dms_client:fd *;
+allow hal_aidl_dms_server hal_aidl_dms_service:service_manager { add find };
+allow hal_aidl_dms_default vendor_data_file:dir rw_dir_perms;
+allow hal_aidl_dms_default vendor_data_file:file create_file_perms;
+init_daemon_domain(hal_aidl_dms_default)
+set_prop(hal_aidl_dms_default, vendor_audio_prop)
+binder_use(hal_aidl_dms_server)
+hal_server_domain(hal_aidl_dms_default, hal_aidl_dms)

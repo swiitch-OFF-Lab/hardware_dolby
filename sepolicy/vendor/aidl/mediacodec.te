@@ -1,0 +1,2 @@
+# Dolby
+hal_client_domain(mediacodec, hal_aidl_dms)

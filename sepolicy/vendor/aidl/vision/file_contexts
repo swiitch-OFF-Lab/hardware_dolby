@@ -1,0 +1,2 @@
+# Dolby Vision
+/vendor/bin/hw/dvs-aidl-service                                                           u:object_r:dvs_aidl_default_exec:s0

@@ -1,0 +1,2 @@
+# Dolby Vision
+hal_client_domain(platform_app, dvs_aidl)
