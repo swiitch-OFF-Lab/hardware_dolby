@@ -1,0 +1,2 @@
+# Dolby Vision
+allow system_server dvs_aidl_default:binder { call transfer };

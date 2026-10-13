@@ -1,0 +1,4 @@
+# Dolby
+attribute hal_aidl_dms;
+attribute hal_aidl_dms_client;
+attribute hal_aidl_dms_server;

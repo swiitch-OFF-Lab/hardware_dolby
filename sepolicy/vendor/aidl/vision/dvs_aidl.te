@@ -1,0 +1,21 @@
+type dvs_aidl_default, domain;
+type dvs_aidl_default_exec, exec_type, file_type, vendor_file_type;
+type dvs_aidl_service, hal_service_type, service_manager_type;
+
+allow dvs_aidl_client dvs_aidl_server:binder { call transfer };
+allow dvs_aidl_client dvs_aidl_server:binder transfer;
+allow dvs_aidl_client dvs_aidl_server:fd *;
+allow dvs_aidl_client dvs_aidl_service:service_manager find;
+allow dvs_aidl_server dvs_aidl_client:binder transfer;
+allow dvs_aidl_server dvs_aidl_client:binder { call transfer };
+allow dvs_aidl_server dvs_aidl_client:fd *;
+allow dvs_aidl_default dvs_aidl_service:service_manager { add find };
+allow dvs_aidl_default system_server:binder { call transfer };
+allow dvs_aidl_default fwk_sensor_hwservice:hwservice_manager find;
+allow dvs_aidl_default fwk_sensor_service:service_manager find;
+allow dvs_aidl_default vendor_sysfs_graphics:dir { open read search };
+allow dvs_aidl_default vendor_sysfs_graphics:file { getattr open read };
+init_daemon_domain(dvs_aidl_default)
+set_prop(dvs_aidl_server, vendor_dolbyv_prop)
+binder_use(dvs_aidl_default)
+hal_server_domain(dvs_aidl_default, dvs_aidl)
