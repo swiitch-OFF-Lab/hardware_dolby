@@ -1,0 +1,2 @@
+# Dolby
+hal_client_domain(platform_app, hal_aidl_dms)

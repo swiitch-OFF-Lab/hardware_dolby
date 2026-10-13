@@ -1,0 +1,2 @@
+# Allow Audio hal to find hal_aidl_dms
+hal_client_domain(hal_audio_default, hal_aidl_dms)
