@@ -1329,7 +1329,7 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library_shared {
     name: "c2.dolby.avc.dec",
-    owner: "xiaomi",
+    owner: "dolby",
     strip: {
         none: true,
     },
@@ -1340,11 +1340,14 @@ cc_prebuilt_library_shared {
             ],
             shared_libs: [
                 "libcodec2_shim",
+                "libcodec2_hal_common-aidl",
+                "libcodec2_hidl_plugin-dolby",
+                "libcodec2_aidl-dolby",
                 "android.hardware.media.c2@1.0",
                 "libcodec2_hidl@1.0",
                 "libbase",
                 "libcodec2",
-                "libcodec2_vndk",
+                "libcodec2_vndk-aidl",
                 "libutils",
                 "libcodec2_soft_common",
                 "libcutils",
@@ -1369,7 +1372,7 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library_shared {
     name: "c2.dolby.avc.sec.dec",
-    owner: "xiaomi",
+    owner: "dolby",
     strip: {
         none: true,
     },
@@ -1380,11 +1383,14 @@ cc_prebuilt_library_shared {
             ],
             shared_libs: [
                 "libcodec2_shim",
+                "libcodec2_hal_common-aidl",
+                "libcodec2_hidl_plugin-dolby",
+                "libcodec2_aidl-dolby",
                 "android.hardware.media.c2@1.0",
                 "libcodec2_hidl@1.0",
                 "libbase",
                 "libcodec2",
-                "libcodec2_vndk",
+                "libcodec2_vndk-aidl",
                 "libutils",
                 "libcodec2_soft_common",
                 "libcutils",
@@ -1409,7 +1415,7 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library_shared {
     name: "c2.dolby.client",
-    owner: "xiaomi",
+    owner: "dolby",
     strip: {
         none: true,
     },
@@ -1421,10 +1427,13 @@ cc_prebuilt_library_shared {
             shared_libs: [
                 "libcodec2_hidl_shim",
                 "libcodec2_shim",
+                "libcodec2_hal_common-aidl",
+                "libcodec2_hidl_plugin-dolby",
+                "libcodec2_aidl-dolby",
                 "libbase",
                 "liblog",
                 "libcodec2",
-                "libcodec2_vndk",
+                "libcodec2_vndk-aidl",
                 "libutils",
                 "android.hardware.media.c2@1.0",
                 "libcodec2_hidl@1.0",
@@ -1445,7 +1454,7 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library_shared {
     name: "c2.dolby.egl",
-    owner: "xiaomi",
+    owner: "dolby",
     strip: {
         none: true,
     },
@@ -1456,6 +1465,9 @@ cc_prebuilt_library_shared {
             ],
             shared_libs: [
                 "libcodec2_shim",
+                "libcodec2_hal_common-aidl",
+                "libcodec2_hidl_plugin-dolby",
+                "libcodec2_aidl-dolby",
                 "libui",
                 "libGLESv3",
                 "libEGL",
@@ -1477,7 +1489,7 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library_shared {
     name: "c2.dolby.hevc.dec",
-    owner: "xiaomi",
+    owner: "dolby",
     strip: {
         none: true,
     },
@@ -1488,11 +1500,14 @@ cc_prebuilt_library_shared {
             ],
             shared_libs: [
                 "libcodec2_shim",
+                "libcodec2_hal_common-aidl",
+                "libcodec2_hidl_plugin-dolby",
+                "libcodec2_aidl-dolby",
                 "android.hardware.media.c2@1.0",
                 "libcodec2_hidl@1.0",
                 "libbase",
                 "libcodec2",
-                "libcodec2_vndk",
+                "libcodec2_vndk-aidl",
                 "libutils",
                 "libcodec2_soft_common",
                 "libcutils",
@@ -1517,7 +1532,7 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library_shared {
     name: "c2.dolby.hevc.enc",
-    owner: "xiaomi",
+    owner: "dolby",
     strip: {
         none: true,
     },
@@ -1528,11 +1543,14 @@ cc_prebuilt_library_shared {
             ],
             shared_libs: [
                 "libcodec2_shim",
+                "libcodec2_hal_common-aidl",
+                "libcodec2_hidl_plugin-dolby",
+                "libcodec2_aidl-dolby",
                 "android.hardware.media.c2@1.0",
                 "libcodec2_hidl@1.0",
                 "libbase",
                 "libcodec2",
-                "libcodec2_vndk",
+                "libcodec2_vndk-aidl",
                 "libutils",
                 "libcodec2_soft_common",
                 "libcutils",
@@ -1557,7 +1575,7 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library_shared {
     name: "c2.dolby.hevc.sec.dec",
-    owner: "xiaomi",
+    owner: "dolby",
     strip: {
         none: true,
     },
@@ -1568,11 +1586,14 @@ cc_prebuilt_library_shared {
             ],
             shared_libs: [
                 "libcodec2_shim",
+                "libcodec2_hal_common-aidl",
+                "libcodec2_hidl_plugin-dolby",
+                "libcodec2_aidl-dolby",
                 "android.hardware.media.c2@1.0",
                 "libcodec2_hidl@1.0",
                 "libbase",
                 "libcodec2",
-                "libcodec2_vndk",
+                "libcodec2_vndk-aidl",
                 "libutils",
                 "libcodec2_soft_common",
                 "libcutils",
@@ -1597,7 +1618,7 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library_shared {
     name: "c2.dolby.store",
-    owner: "xiaomi",
+    owner: "dolby",
     strip: {
         none: true,
     },
@@ -1608,9 +1629,12 @@ cc_prebuilt_library_shared {
             ],
             shared_libs: [
                 "libcodec2_shim",
+                "libcodec2_hal_common-aidl",
+                "libcodec2_hidl_plugin-dolby",
+                "libcodec2_aidl-dolby",
                 "libbase",
                 "libcodec2",
-                "libcodec2_vndk",
+                "libcodec2_vndk-aidl",
                 "libutils",
                 "android.hardware.media.c2@1.0",
                 "libcodec2_hidl@1.0",
@@ -1631,7 +1655,7 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library_shared {
     name: "libdolbyottcameracontrol",
-    owner: "xiaomi",
+    owner: "dolby",
     strip: {
         none: true,
     },
@@ -1657,7 +1681,7 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library_shared {
     name: "libdolbyvision",
-    owner: "xiaomi",
+    owner: "dolby",
     strip: {
         none: true,
     },
@@ -1667,9 +1691,12 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/libdolbyvision.so",
             ],
             shared_libs: [
+                "libcodec2_hal_common-aidl",
+                "libcodec2_hidl_plugin-dolby",
+                "libcodec2_aidl-dolby",
                 "libbase",
                 "libcodec2",
-                "libcodec2_vndk",
+                "libcodec2_vndk-aidl",
                 "android.hardware.media.c2@1.0",
                 "libcodec2_hidl@1.0",
                 "liblog",
@@ -1697,17 +1724,20 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_binary {
     name: "dolbycodec2",
-    owner: "xiaomi",
+    owner: "dolby",
     target: {
         android_arm64: {
             srcs: [
                 "proprietary/vendor/bin/hw/dolbycodec2",
             ],
             shared_libs: [
+                "libcodec2_hal_common-aidl",
+                "libcodec2_hidl_plugin-dolby",
+                "libcodec2_aidl-dolby",
                 "libbase",
                 "liblog",
                 "libcodec2",
-                "libcodec2_vndk",
+                "libcodec2_vndk-aidl",
                 "libutils",
                 "android.hardware.media.c2@1.0",
                 "libcodec2_hidl@1.0",
@@ -1715,7 +1745,6 @@ cc_prebuilt_binary {
                 "libbinder",
                 "libhidlbase",
                 "c2.dolby.store",
-                "libcutils",
                 "libc++",
                 "libc",
                 "libm",
