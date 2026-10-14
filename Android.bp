@@ -957,6 +957,10 @@ cc_prebuilt_binary {
                 "proprietary/vendor/bin/hw/vendor.dolby.media.c2@1.0-service",
             ],
             shared_libs: [
+                "libaconfig_storage_read_api_cc",
+                "server_configurable_flags",
+                "libstagefright_aidl_bufferpool2",
+                "android.hardware.media.c2-V1-ndk",
                 "libcodec2_hal_common-aidl",
                 "libcodec2_hidl_plugin-dolby",
                 "libcodec2_aidl-dolby",
