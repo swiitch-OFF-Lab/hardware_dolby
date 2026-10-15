@@ -66,13 +66,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     DolbyFrameworksResCommon
 
-# Dolby Spatial Audio
-PRODUCT_COPY_FILES += \
-    $(DOLBY_PATH)/configs/android.hardware.sensor.dynamic.head_tracker.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.dynamic.head_tracker.xml
-
-PRODUCT_SYSTEM_EXT_PROPERTIES += \
-       ro.audio.headtracking_enabled=true
-
 # Dolby Spatial Audio: declare use of spatial audio
 PRODUCT_SYSTEM_EXT_PROPERTIES += \
        ro.audio.spatializer_enabled=true \
